@@ -1,12 +1,29 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import publicRouter from './router'
 import './App.scss'
+import { useEffect } from 'react';
 
 
 function App() {
+  const location = useLocation();
+  useEffect(() => {
+    if(location.pathname === "/"){
+      document.title = 'Trang chủ';
+    } else if(location.pathname === '/products') {
+      document.title = 'Toàn bộ sản phẩm';
+    } else if(location.pathname === '/category') {
+      document.title = 'Thương hiệu'
+    } else if(location.pathname === '/detail') {
+      document.title = 'Chi tiết sản phẩm'
+    } else if(location.pathname === '/cart') {
+      document.title = 'Giỏ hàng'
+    } else {
+      document.title = '404'
+    }
+
+  }, [location])
 
   return (
-    <div>
       <Routes>
         {publicRouter.map((route, index) => {
           const Page = route.component
@@ -17,8 +34,6 @@ function App() {
           />
         })}
       </Routes>
-
-    </div>
   );
 }
 

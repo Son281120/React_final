@@ -1,0 +1,248 @@
+.footer {
+    margin-top: 50px;
+
+        
+    .footer__top {
+        text-align: center;
+        min-height: 50px;
+        border-top: 2px dotted #ebebeb;
+    }
+
+
+    .footer__top-title {
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 1.8rem;
+    }
+
+    .footer__top-desc {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+    }
+
+
+    .footer__main {
+        width: 100%;
+        background-image: url(https://bizweb.dktcdn.net/100/347/064/themes/717243/assets/background_footer.png?1677949219365);
+        background-position: center center;
+        background-size: cover;
+        height: 100%;
+        padding: 60px;
+    }
+
+    .footer__item {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+
+    .footer__logo-img {
+        width: 100px;
+    }
+
+    .footer__logo-link {
+        display: block;
+        width: 100%;
+        position: relative;
+        color: var(--black-color);
+        padding-bottom: 10px;
+    }
+
+
+    .footer__logo-text {
+        font-size: 14px;
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: -0.15rem;
+        position: absolute;
+        top: 8%;
+    }
+    .footer__logo-text.auth {
+        font-size: 14px;
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: -0.15rem;
+        position: absolute;
+        top: 28%;
+        color: #CF8E56;
+    }
+
+    .footer__logo-link:hover {
+        text-decoration: none;
+        color: var(--black-color);
+    }
+
+
+
+    .footer__title {
+        color: var(--white-color);
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+
+    .footer__info ul {
+        list-style: none;
+        margin: 0;
+    }
+
+    .footer__info li {
+        font-size: 1.4rem;
+        color: #ebebeb;
+    }
+
+    .f-item {
+        padding: 10px 0;
+    }
+
+    .f-item:hover {
+        transform: translateX(10px);
+        transition: all 0.3s ease-in-out;
+    }
+
+
+
+    .f-item a {
+        color: #ebebeb;
+        text-decoration: none;
+    }
+
+    .f-item:hover a {
+        color: var(--hover-color);
+        transition: all 0.3s ease-in-out;
+    }
+
+
+    .social-media {
+        width: 100%;
+    }
+
+    .social-media-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: left;
+    }
+
+    .social-media-item {
+        margin-right: 10px;
+        
+    }
+
+    .social-media-item svg {
+        display: block;
+        border-radius: 50%;
+        background-color: var(--white-color);
+    }
+
+    .social-media-item:hover a {
+        text-decoration: none;
+    }
+
+    .fa-facebook-f {
+        padding: 9px 12px;
+        color: #0B84EE;
+    }
+
+    .social-media-item:hover .fa-facebook-f {
+        color: var(--white-color);
+        background-color: #0B84EE;
+        transition: color 0.3s ease-in;
+    }
+
+    .fa-google {
+        padding: 9px 10px;
+        color: #ea4335;
+    }
+
+    .social-media-item:hover .fa-google {
+        color: var(--white-color);
+        background-color: #ea4335;
+        transition: color 0.3s ease-in;
+    }
+
+    .fa-youtube {
+        padding: 9px;
+        color: #FF0000;
+    }
+
+    .social-media-item:hover .fa-youtube {
+        color: var(--white-color);
+        background-color: #FF0000;
+        transition: color 0.3s ease-in;
+    }
+
+
+    .fa-instagram {
+        padding: 9px 10px;
+        color: #FF105C;
+    }
+
+    .social-media-item:hover .fa-instagram  {
+        color: var(--white-color);
+        background-color: #FF105C;
+        transition: color 0.3s ease-in;
+    }
+
+    .receive-infomation  {
+        padding-top: 20px;
+        clear: left;
+        position: relative;
+    }
+
+    .email-contact {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        padding: 12px;
+        font-style: italic;
+        width: 100%;
+        border-radius: 20px;
+        border: none;
+    }
+
+    .email-contact:focus {
+        outline: none;
+    }
+
+    .email-btn {
+        border: none;
+        position: absolute;
+        right: 0px;
+        background-color: #3DC8F6;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .email-btn:focus {
+        outline: none;
+    }
+
+    .email-btn:hover svg {
+        animation: email-btn 0.3s ease-in;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes email-btn {
+        0% {
+            transform: rotate(0);
+        }
+        33.33% {
+            transform: rotate(-20deg);
+        }
+        66.66% {
+            transform: rotate(20deg);
+        }
+    }
+
+    .email-btn svg {
+        display: block;
+        padding: 12px 24px 12px 24px;
+        font-size: 1.6rem;
+        color: var(--white-color);
+    }
+}
+
+

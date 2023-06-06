@@ -1,0 +1,33 @@
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    .banner__img {
+        width: 50%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+
+        &:hover img {
+            transform: scale(1.2);
+            transition: all 0.3s ease-in;
+        }
+    }
+
+    @media (max-width : 768px) {
+        .banner {
+            flex-wrap: wrap;
+        }
+        
+        .banner__img {
+            width: 100%;
+        }
+    }
+}
+
+
+
