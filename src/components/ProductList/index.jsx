@@ -1,11 +1,20 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchProducts } from '../../redux/store/productSlice';
+import { Link } from 'react-router-dom';
 
 import './ProductList.scss'
-import { Link } from 'react-router-dom';
 const ProductList = () => {
-    const productList = useSelector(state => state.product);
-    console.log(productList);
+    const dispatch = useDispatch();
+    const productList = useSelector(state => state.products);
+    const status = useSelector((state) => state.products.status);
+    const error = useSelector((state) => state.products.error);
+    console.log(productList, status, error);
+
+    useEffect(() => {
+        dispatch(fetchProducts)
+    },[dispatch]);
+
     return (
         <div className="product container">
             <div className="row">
@@ -21,7 +30,6 @@ const ProductList = () => {
                 </div>
             </div>
             <div className="row product__list">
-                
             </div>
         </div>
     )

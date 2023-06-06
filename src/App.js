@@ -17,6 +17,8 @@ function App() {
       document.title = 'Chi tiết sản phẩm'
     } else if(location.pathname === '/cart') {
       document.title = 'Giỏ hàng'
+    }else if(location.pathname === '/policy') {
+      document.title = 'Chính sách'
     } else {
       document.title = '404'
     }

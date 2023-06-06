@@ -1,0 +1,110 @@
+.news {
+    border-radius: 25px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    padding: 30px 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    .new__item {
+        overflow: hidden;
+    }
+
+    .new__title {
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    .new__title-label {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 3rem;
+        font-weight: 700;
+    }
+
+    .label-link {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    .new__title-label:hover a {
+        text-decoration: none;
+        color: var(--primary-color);
+        transition: color 0.3s ease-in-out;
+    }
+
+    .new__title-desc {
+        font-size: 1.4rem;
+    }
+
+    .new__title::after {
+        content: "";
+        display: table;
+        clear: both;
+        background-image: url('../../assets/img/divide.png');
+        width: 100%;
+        height: 28px;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: bottom;
+        padding-top: 0;
+    }
+
+    .new__item:hover {
+        transform: translateY(-2px);
+    }
+
+    .new__img {
+        overflow: hidden;
+    }
+
+    .new__img img {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .new__item:hover img {
+        transform: scale(1.2);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .new__img {
+        width: 100%;
+        border: 1px solid #ebebeb;
+    }
+
+    .new__info {
+        padding: 12px 0;
+    }
+
+    .new__info-name {
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        color: var(--text-color);
+        text-align: center;
+    }
+
+    .new__item:hover a {
+        color: #3f82bb;
+        cursor: pointer;
+        transition: color 0.3s ease-in;
+    }
+
+    .new__info-desc {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+    }
+
+    .new__info-author {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        padding: 10px 0;
+    }
+
+    .new__info-author i {
+        margin-right: 6px;
+    }
+
+    .new__info-author span {
+        font-style: italic;
+    }
+}

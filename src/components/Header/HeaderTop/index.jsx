@@ -26,11 +26,13 @@ const HeaderTop = () => {
                                 <div className="top-cart-contain">
                                     <div className="mini-cart text-xs-center">
                                         <div className="heading-cart" >
-                                            <span className="cartImg">
-                                                <img src="//bizweb.dktcdn.net/thumb/icon/100/347/064/themes/717243/assets/icon_cart___empty.png?1677949219365"
-                                                    alt="icon-cart" />
-                                            </span>
-                                            <span className="cartCount count_item_pr" id="cart-total">0</span>
+                                            <Link to="/cart">
+                                                <span className="cartImg">
+                                                    <img src="//bizweb.dktcdn.net/thumb/icon/100/347/064/themes/717243/assets/icon_cart___empty.png?1677949219365"
+                                                        alt="icon-cart" />
+                                                </span>
+                                                <span className="cartCount count_item_pr" id="cart-total">0</span>
+                                            </Link>
                                         </div>
                                         <div className="top-cart-content hidden-sm hidden-xs">
                                             <ul id="cart-sidebar" className="mini-products-list count_li">

@@ -47,6 +47,20 @@ const HeaderMain = () => {
                                     </div>
                                 </li>
                                 <li className="navbar__item">
+                                    <Link to="/policy" className="navbar__item-link">
+                                        <span>Chính sách</span>
+                                        <FontAwesomeIcon icon={faCaretDown}/>
+                                    </Link>
+                                    <div className="subnav">
+                                        <ul className="subnav__list">
+                                            <li className="subnav__item"><Link to="/policy" className="subnav__item_link">Hướng dẫn mua hàng</Link></li>
+                                            <li className="subnav__item"><Link to="/policy" className="subnav__item_link">Điều khoản dịch vụ</Link></li>
+                                            <li className="subnav__item"><Link to="/policy" className="subnav__item_link">Chính sách đổi trả</Link></li>
+                                            <li className="subnav__item"><Link to="/policy" className="subnav__item_link">Quy định sử dụng</Link></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li className="navbar__item">
                                     <Link to="/" className="navbar__item-link">
                                         <span>ƯU ĐÃI</span>
                                     </Link>
