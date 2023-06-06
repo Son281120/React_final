@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchProducts } from '../../redux/store/productSlice';
+import { fetchingProducts } from '../../redux/middleware/index.js';
 import { Link } from 'react-router-dom';
 
 import './ProductList.scss'
@@ -12,7 +12,7 @@ const ProductList = () => {
     console.log(productList, status, error);
 
     useEffect(() => {
-        dispatch(fetchProducts)
+        dispatch(fetchingProducts())
     },[dispatch]);
 
     return (
