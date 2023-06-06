@@ -4,6 +4,7 @@ import Category from '../pages/Category'
 import Detail from '../pages/Detail'
 import Cart from '../pages/Cart'
 import NotFound from '../pages/NotFound'
+import Policy from '../pages/Policy'
 
 
 
@@ -13,6 +14,7 @@ const publicRouter = [
     { path: '/category', component: Category },
     { path: '/detail', component: Detail },
     { path: '/cart', component: Cart },
+    { path: '/policy', component: Policy },
     { path: '/*', component: NotFound }
 ];
 
