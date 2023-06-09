@@ -56,10 +56,10 @@ const Footer = () => {
                                 </h4>
                                 <ul>
                                     <li className="f-item">
-                                        <Link to="">Hướng dẫn mua hàng</Link>
+                                        <Link to="/policy/shoppingguide">Hướng dẫn mua hàng</Link>
                                     </li>
                                     <li className="f-item">
-                                        <Link to="">Điều khoản dịch vụ</Link>
+                                        <Link to="/policy/termsofservices">Điều khoản dịch vụ</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -71,10 +71,10 @@ const Footer = () => {
                                 </h4>
                                 <ul>
                                     <li className="f-item">
-                                        <Link to="">Chính sách đổi trả</Link>
+                                        <Link to="/policy/returnspolicychange">Chính sách đổi trả</Link>
                                     </li>
                                     <li className="f-item">
-                                        <Link to="">Quy định sử dụng</Link>
+                                        <Link to="/policy/rulesofuse">Quy định sử dụng</Link>
                                     </li>
                                 </ul>
                             </div>

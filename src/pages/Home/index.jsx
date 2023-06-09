@@ -1,17 +1,20 @@
 import React from 'react'
-import Layout from '../../layout'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 import Slider from '../../components/Slider'
 import Banner from '../../components/Banner'
-import ProductList from '../../components/ProductList'
 import New from '../../components/New/inded'
 const Home = () => {
     return (
-        <Layout>
-            <Slider/>
-            <ProductList/>
-            <Banner/>
-            <New/>
-        </Layout>
+        <HelmetProvider>
+            <div className='home'>
+                <Helmet>
+                    <title>Trang chủ</title>
+                </Helmet>
+                <Slider/>
+                <Banner/>
+                <New/>
+            </div>
+        </HelmetProvider>
     )
 }
 

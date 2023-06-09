@@ -1,10 +1,14 @@
 import React from 'react'
-import Layout from '../../layout'
+import { Helmet } from 'react-helmet'
+
 const Cart = () => {
     return (
-        <Layout>
+        <div className='cart'>
+            <Helmet>
+                <title>Trang chủ</title>
+            </Helmet>
             Cart
-        </Layout>
+        </div>
     )
 }
 
