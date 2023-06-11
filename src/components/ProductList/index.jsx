@@ -3,7 +3,7 @@ import ProductItem from './ProductItem'
 
 
 import './ProductList.scss'
-const ProductList = ({ productList, status, error }) => {
+const ProductList = ({ display, status, error }) => {
 
 
     return (
@@ -21,16 +21,18 @@ const ProductList = ({ productList, status, error }) => {
                 </div>
             </div>
             <div className="row product__list">
-                {productList.map(item => {
-                    return <ProductItem
-                        key={item.id}
-                        id={item.id}
-                        name={item.name}
-                        img={item.img[0]}
-                        newPrice={item.newPrice}
-                        oldPrice={item.newPrice}
-                    />
-                })}
+                {
+                    display.map(item => {
+                        return <ProductItem
+                            key={item.id}
+                            id={item.id}
+                            name={item.name}
+                            img={item.img[0]}
+                            newPrice={item.newPrice}
+                            oldPrice={item.newPrice}
+                        />
+                    })
+                }
             </div>
         </div>
     )

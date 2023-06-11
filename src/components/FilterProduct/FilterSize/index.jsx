@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import './FilterSize.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { filterBySize, showAll } from '../../../redux/store/displaySlice';
+import { filterBySize, showAll } from '../../../redux/store/displaySlice.js';
 
 const FilterSize = () => {
     const [sizes, setSizes] = useState([]);
@@ -23,7 +23,6 @@ const FilterSize = () => {
 
     useEffect(() => {
         if (status === 'successed') {
-            dispatch(showAll(productList));
             if (sizes.length === 0) {
                 dispatch(showAll(productList));
             } else {

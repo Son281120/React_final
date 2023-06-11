@@ -1,7 +1,6 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import fetchingProducts from '../../redux/middleware/index.js';
 import ProductList from '../../components/ProductList'
 import FilterProduct from '../../components/FilterProduct/index.jsx';
 import { showAll } from '../../redux/store/displaySlice.js';
@@ -14,10 +13,7 @@ const Products = () => {
     const error = useSelector((state) => state.products.error);
     const display = useSelector((state) => state.display);
 
-    useEffect(() => {
-        dispatch(fetchingProducts())
-    }, [dispatch]);
-
+    
     useEffect(() => {
         dispatch(showAll(productList));
     }, [dispatch, productList])
@@ -31,7 +27,7 @@ const Products = () => {
                 <div className="row">
                 <FilterProduct/>
                 <ProductList
-                    productList={display}
+                    display={display}
                     status={status}
                     error={error}
                 />

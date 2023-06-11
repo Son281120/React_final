@@ -112,6 +112,15 @@ const FilterColor = () => {
             <div className='filter-color-item'>
                 <input
                     type="checkbox"
+                    value="gray"
+                    checked={colors.includes('gray')}
+                    onChange={handleCheckboxChange}
+                />
+                <FontAwesomeIcon icon={faCircle} />
+            </div>
+            <div className='filter-color-item'>
+                <input
+                    type="checkbox"
                     value="white"
                     checked={colors.includes('white')}
                     onChange={handleCheckboxChange}

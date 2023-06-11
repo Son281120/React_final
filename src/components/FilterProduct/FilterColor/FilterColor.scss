@@ -60,6 +60,11 @@
             border: 2px solid #ebebeb;
             border-radius: 50%;
         }
+        input[value="gray"] + svg {
+            color: gray;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
         input[value="white"] + svg {
             color: white;
             border: 2px solid #ebebeb;

@@ -27,12 +27,9 @@ const HeaderMain = () => {
     }
 
     useEffect(() => {
-        const searchProductParams = JSON.parse(searchParams.get("searchProducts"));
-        if(status === 'successed' && searchProductParams) {
+            const searchProductParams = JSON.parse(searchParams.get("searchProducts"));
+            console.log('filter' + searchProductParams+ status);
             dispatch(filterByName(searchProductParams));
-            console.log('filter'+ searchProductParams);
-
-        }
     }, [dispatch, searchParams, status]);
 
     console.log(display);
@@ -43,7 +40,7 @@ const HeaderMain = () => {
         if (!searchInput && !searchProductParams) {
             dispatch(showAll(productList));
         }
-    },[searchInput, productList, dispatch, searchParams])
+    }, [searchInput, productList, dispatch, searchParams])
 
     const activeClass = (params) => {
         return params.isActive ? 'active-item navbar__item-link' : 'navbar__item-link'
