@@ -1,0 +1,71 @@
+.filter-color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .filter-color-item {
+        font-size: 2.4rem;
+        position: relative;
+        padding: 4px 10px;
+
+        input {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            opacity: 0;
+        }
+
+        input[type="checkbox"]:checked + svg {
+            border: 2px dashed #3DC8F6;
+        }
+        input[value="red"] + svg {
+            color: red;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
+
+        input[value="black"] + svg {
+            color: black;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
+        input[value="blue"] + svg {
+            color: #3F82BB;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
+        input[value="green"] + svg {
+            color: green;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
+        input[value="orange"] + svg {
+            color: orange;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
+        input[value="yellow"] + svg {
+            color: yellow;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
+        input[value="purple"] + svg {
+            color: purple;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
+        input[value="pink"] + svg {
+            color: pink;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
+        input[value="white"] + svg {
+            color: white;
+            border: 2px solid #ebebeb;
+            border-radius: 50%;
+        }
+
+
+    }
+}

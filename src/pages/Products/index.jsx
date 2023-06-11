@@ -4,18 +4,23 @@ import { useSelector, useDispatch } from 'react-redux'
 import fetchingProducts from '../../redux/middleware/index.js';
 import ProductList from '../../components/ProductList'
 import FilterProduct from '../../components/FilterProduct/index.jsx';
+import { showAll } from '../../redux/store/displaySlice.js';
 
 const Products = () => {
 
     const dispatch = useDispatch();
-    const productList = useSelector(state => state.products.products);
+    const productList = useSelector((state) => state.products.products);
     const status = useSelector((state) => state.products.status);
     const error = useSelector((state) => state.products.error);
-    console.log(productList, status, error);
+    const display = useSelector((state) => state.display);
 
     useEffect(() => {
         dispatch(fetchingProducts())
     }, [dispatch]);
+
+    useEffect(() => {
+        dispatch(showAll(productList));
+    }, [dispatch, productList])
 
     return (
         <HelmetProvider>
@@ -26,7 +31,7 @@ const Products = () => {
                 <div className="row">
                 <FilterProduct/>
                 <ProductList
-                    productList={productList}
+                    productList={display}
                     status={status}
                     error={error}
                 />

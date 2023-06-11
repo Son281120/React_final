@@ -1,12 +1,53 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, NavLink, useSearchParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux'
+import { filterByName, showAll } from '../../../redux/store/displaySlice'
+
 import Logo from '../../../assets/img/PenguinLogo.png'
+
 const HeaderMain = () => {
+    let [searchParams, setSearchParams] = useSearchParams();
     const [searchInput, setSearchInput] = useState('');
 
+    const dispatch = useDispatch();
+    const productList = useSelector(state => state.products.products);
+    const status = useSelector((state) => state.products.status);
+    const display = useSelector((state) => state.display);
 
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        if (status === 'successed') {
+            dispatch(filterByName(searchInput));
+            searchParams.set("searchProducts", JSON.stringify(searchInput));
+            setSearchParams(searchParams);
+        }
+    }
+
+    useEffect(() => {
+        const searchProductParams = JSON.parse(searchParams.get("searchProducts"));
+        if(status === 'successed' && searchProductParams) {
+            dispatch(filterByName(searchProductParams));
+            console.log('filter'+ searchProductParams);
+
+        }
+    }, [dispatch, searchParams, status]);
+
+    console.log(display);
+
+
+    useEffect(() => {
+        const searchProductParams = JSON.parse(searchParams.get("searchProducts"));
+        if (!searchInput && !searchProductParams) {
+            dispatch(showAll(productList));
+        }
+    },[searchInput, productList, dispatch, searchParams])
+
+    const activeClass = (params) => {
+        return params.isActive ? 'active-item navbar__item-link' : 'navbar__item-link'
+    }
 
     return (
         <div className="header__main">
@@ -22,20 +63,20 @@ const HeaderMain = () => {
                     <nav className="col-xl-8 col-lg-8 col-md-12 col-sm-12 header__navbar">
                         <ul className="navbar__list">
                             <li className="navbar__item">
-                                <Link to="/" className="navbar__item-link">
+                                <NavLink to="/" className={activeClass}>
                                     <span>Trang chủ</span>
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="navbar__item">
-                                <Link to="/products" className="navbar__item-link">
+                                <NavLink to="/products" className={activeClass}>
                                     <span>Sản phẩm</span>
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="navbar__item">
-                                <Link to="/category" className="navbar__item-link">
+                                <NavLink to="/category" className={activeClass}>
                                     <span>Thương hiệu</span>
                                     <FontAwesomeIcon icon={faCaretDown} />
-                                </Link>
+                                </NavLink>
                                 <div className="subnav">
                                     <ul className="subnav__list">
                                         <li className="subnav__item"><Link to="/category" className="subnav__item_link">Adidas</Link></li>
@@ -46,10 +87,10 @@ const HeaderMain = () => {
                                 </div>
                             </li>
                             <li className="navbar__item">
-                                <Link to="/policy" className="navbar__item-link">
+                                <NavLink to="/policy" className={activeClass}>
                                     <span>Chính sách</span>
                                     <FontAwesomeIcon icon={faCaretDown} />
-                                </Link>
+                                </NavLink>
                                 <div className="subnav">
                                     <ul className="subnav__list">
                                         <li className="subnav__item"><Link to="/policy/shoppingguide" className="subnav__item_link">Hướng dẫn mua hàng</Link></li>
@@ -60,13 +101,13 @@ const HeaderMain = () => {
                                 </div>
                             </li>
                             <li className="navbar__item">
-                                <Link to="/" className="navbar__item-link">
+                                <NavLink to="/" className="navbar__item-link">
                                     <span>ƯU ĐÃI</span>
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                     </nav>
-                    <form className="col-xs-12 col-sm-12 col-md-5 col-md-offset-0 col-lg-2 col-lg-offset-10 col-hg-2 col-hg-offset-10 header__search">
+                    <form className="col-xs-12 col-sm-12 col-md-5 col-md-offset-0 col-lg-2 col-lg-offset-10 col-hg-2 col-hg-offset-10 header__search" onSubmit={handleSearchSubmit}>
                         <div className='header__search_group'>
                             <input
                                 type="text"

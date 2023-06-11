@@ -8,7 +8,7 @@ const productsSlice = createSlice({
       state.status = 'loading'
     },
     fetchProductsSuccess: (state, action) => {
-      state.status = 'successded';
+      state.status = 'successed';
       state.products = action.payload;
     },
     fetchProductsFailure(state, action) {

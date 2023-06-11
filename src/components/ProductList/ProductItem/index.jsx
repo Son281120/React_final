@@ -27,7 +27,7 @@ const ProductItem = ({ id,name, img, newPrice, oldPrice }) => {
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
                 </div>
-                <button className="add-cart-btn">Thêm vào giỏ hàng</button>
+                <button className="add-cart-btn">Thêm vào giỏ</button>
             </NavLink>
         </div>
     )

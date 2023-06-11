@@ -154,6 +154,7 @@
         padding: 10px 0;
     }
 
+
     .header__logo-img {
         display: inline-block;
         width: 100px;
@@ -223,6 +224,12 @@
         span {
             padding-right: 6px;
         }
+    }
+
+    .active-item {
+        background-color: var(--primary-color);
+        box-shadow: 0 2px 0 var(--text-color);
+        color: var(--white-color);
     }
 
 
