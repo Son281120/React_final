@@ -3,7 +3,7 @@ import { Link, NavLink, useSearchParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { filterByName, showAll } from '../../../redux/store/displaySlice'
+import { updateFilterName } from '../../../redux/store/productSlice'
 
 import Logo from '../../../assets/img/PenguinLogo.png'
 
@@ -12,35 +12,35 @@ const HeaderMain = () => {
     const [searchInput, setSearchInput] = useState('');
 
     const dispatch = useDispatch();
-    const productList = useSelector(state => state.products.products);
     const status = useSelector((state) => state.products.status);
-    const display = useSelector((state) => state.display);
 
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        if (status === 'successed') {
-            dispatch(filterByName(searchInput));
-            searchParams.set("searchProducts", JSON.stringify(searchInput));
+        if (status === 'successed' && searchInput !== '') {  
+            dispatch(updateFilterName(searchInput));
+            searchParams.set("name", JSON.stringify(searchInput));
             setSearchParams(searchParams);
         }
     }
 
     useEffect(() => {
-            const searchProductParams = JSON.parse(searchParams.get("searchProducts"));
-            console.log('filter' + searchProductParams+ status);
-            dispatch(filterByName(searchProductParams));
-    }, [dispatch, searchParams, status]);
+        console.log('window:', window.location.href);
+    }, []);
 
-    console.log(display);
+    // useEffect(() => {
+    //     if (status === 'successed' && searchParams.get("name")) {
+    //         const searchProductParams = JSON.parse(searchParams.get("name"));
+    //         const initValue = {
+    //             name: searchProductParams,
+    //             sizes: [],
+    //             colors: [],
+    //             price: []
+    //         }
+    //         dispatch(filterData(initValue));
+    //     }
+    // }, [dispatch, searchParams, status]);
 
-
-    useEffect(() => {
-        const searchProductParams = JSON.parse(searchParams.get("searchProducts"));
-        if (!searchInput && !searchProductParams) {
-            dispatch(showAll(productList));
-        }
-    }, [searchInput, productList, dispatch, searchParams])
 
     const activeClass = (params) => {
         return params.isActive ? 'active-item navbar__item-link' : 'navbar__item-link'

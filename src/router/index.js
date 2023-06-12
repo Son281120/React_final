@@ -11,6 +11,9 @@ import TermsOfServices from '../pages/Policy/TermsOfServices'
 import ReturnsPolicyChange from '../pages/Policy/ReturnsPolicyChange'
 import RulesOfUse from '../pages/Policy/RulesOfUse'
 import App from "../App";
+import Auth from "../pages/Auth";
+import Login from "../pages/Auth/Login"
+import Register from "../pages/Auth/Register"
 
 
 const router = createBrowserRouter([
@@ -39,7 +42,7 @@ const router = createBrowserRouter([
                 element: <Cart />
             },
             {
-                path: "",
+                path: "/policy",
                 element: <Policy />,
                 children: [
                     {
@@ -59,14 +62,27 @@ const router = createBrowserRouter([
                         element: <RulesOfUse />
                     }
                 ]
-            },
-            {
-                path: "*",
-                element: <NotFound />
             }
         ]
+    },
+    {
+        path: "/auth",
+        element: <Auth />,
+        children: [
+            {
+                path: '/auth/login',
+                element: <Login />
+            },
+            {
+                path: '/auth/register',
+                element: <Register />
+            },
+        ]
+    },
+    {
+        path: "*",
+        element: <NotFound />
     }
-
 ]);
 
 export default router

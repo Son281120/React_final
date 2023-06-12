@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { showAll, filterByColor } from '../../../redux/store/displaySlice'
+import { updateFilterColors } from '../../../redux/store/productSlice'; 
 
 import './FilterColor.scss'
 
@@ -11,7 +11,6 @@ const FilterColor = () => {
     const [colors, setColors] = useState([]);
     
     const dispatch = useDispatch();
-    const productList = useSelector(state => state.products.products);
     const status = useSelector((state) => state.products.status);
 
     const handleCheckboxChange = (event) => {
@@ -26,14 +25,9 @@ const FilterColor = () => {
 
     useEffect(() => {
         if (status === 'successed') {
-            dispatch(showAll(productList));
-            if (colors.length === 0) {
-                dispatch(showAll(productList));
-            } else {
-                dispatch(filterByColor(colors));
-            }
+            dispatch(updateFilterColors(colors))
         }
-    }, [status, productList, colors, dispatch])
+    }, [status, colors, dispatch])
 
     return (
         <div className='filter-color'>

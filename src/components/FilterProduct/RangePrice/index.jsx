@@ -2,25 +2,28 @@ import React, { useRef, useState } from 'react'
 import Slider from 'react-slider'
 import './RangePrice.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { showAll, filterByPrice } from '../../../redux/store/displaySlice'
+import { updateFilterPrice } from '../../../redux/store/productSlice'; 
+import { useSearchParams } from 'react-router-dom';
 
 
 
 
 const RangePrice = () => {
     const dispatch = useDispatch();
-    const productList = useSelector(state => state.products.products);
     const status = useSelector((state) => state.products.status);
     const MIN = useRef(0);
     const MAX = useRef(20000000);
+    let [searchParams, setSearchParams] = useSearchParams();
+
 
 
     const [price, setPrice] = useState([MIN.current, MAX.current]);
 
     const handleMouseUp = () => {
         if (status === 'successed') {
-            dispatch(showAll(productList));
-            dispatch(filterByPrice(price));
+            dispatch(updateFilterPrice(price));
+            searchParams.set("price", JSON.stringify(price));
+            setSearchParams(searchParams);
         }
     };
     

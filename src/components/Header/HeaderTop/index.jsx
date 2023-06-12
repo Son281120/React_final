@@ -47,12 +47,12 @@ const HeaderTop = () => {
                                     className="img-responsive" alt="Tài khoản" />
                                 <ul className="cp">
                                     <li className="cp-item">
-                                        <NavLink to="/" title="Đăng nhập" className="btn-transition">
+                                        <NavLink to="/auth/login" title="Đăng nhập" className="btn-transition">
                                             <span>Đăng nhập</span>
                                         </NavLink>
                                     </li>
                                     <li className="cp-item">
-                                        <NavLink to="/" title="Đăng ký" className="btn-transition">
+                                        <NavLink to="/auth/register" title="Đăng ký" className="btn-transition">
                                             <span>Đăng ký</span>
                                         </NavLink>
                                     </li>

@@ -68,6 +68,7 @@ const Detail = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
     };
 
+
     const handleAddtoCart = () => { }
 
     return (
@@ -106,8 +107,16 @@ const Detail = () => {
                                 </span>
                             </div>
                             <div className="product__price product__form_label">
-                                <span className="product__price--new">{data.newPrice}</span>
-                                <span className="product__price--old">{data.oldPrice}</span>
+                                <span className="product__price--new">
+                                    {
+                                        status === 'successed' ? data.newPrice.toLocaleString("en-US", { style: "decimal" }): 'loading'
+                                    }đ
+                                </span>
+                                <span className="product__price--old">
+                                    {
+                                        status === 'successed' ? data.oldPrice.toLocaleString("en-US", { style: "decimal" }): 'loading'
+                                    }đ
+                                </span>
                             </div>
                             <div className="product__size product__form_label">
                                 <label htmlFor="" className="product__type_label label-padding">Size:</label>
