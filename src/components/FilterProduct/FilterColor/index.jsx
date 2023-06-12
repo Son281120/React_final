@@ -25,7 +25,7 @@ const FilterColor = () => {
 
     useEffect(() => {
         if (status === 'successed') {
-            dispatch(updateFilterColors(colors))
+            dispatch(updateFilterColors(colors));
         }
     }, [status, colors, dispatch])
 
