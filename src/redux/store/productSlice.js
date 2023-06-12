@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const productsSlice = createSlice({
   name: "products",
-  initialState: { originProducts: [], status: "idle", error: null, displayProducts: [], filterItems: { name: '', sizes: [], colors: [], price: [] } },
+  initialState: { originProducts: [], status: "idle", error: null, displayProducts: [], filterItem: { name: '', sizes: [], colors: [], price: [] } },
   reducers: {
     fetchProductsStart(state) {
       state.status = 'loading'
@@ -16,16 +16,16 @@ const productsSlice = createSlice({
       state.error = action.payload;
     },
     updateFilterName: (state, action) => {
-      state.filterItems.name = action.payload;
+      state.filterItem.name = action.payload;
     },
     updateFilterSizes: (state, action) => {
-      state.filterItems.sizes = action.payload;
+      state.filterItem.sizes = action.payload;
     },
     updateFilterColors: (state, action) => {
-      state.filterItems.colors = action.payload;
+      state.filterItem.colors = action.payload;
     },
     updateFilterPrice: (state, action) => {
-      state.filterItems.price = action.payload;
+      state.filterItem.price = action.payload;
     },
     showAll: (state, action) => {
       state.displayProducts = [...action.payload];
