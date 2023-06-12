@@ -35,41 +35,13 @@ const CategorySlider = () => {
                                     <img src={item.img} alt=""  />
                                 </div>
                                 <div className="category__info">
-                                    <h4 className="category__info-name">{item.name}</h4>
+                                    <Link to={`/category/${item.id}`}><h4 className="category__info-name">{item.name}</h4></Link>
                                     <span className="category__info-quantity">102 sản phẩm</span>
                                 </div>
                             </Col>
                         })
                         : `loading ${error}`
                 }
-                {/* <div className="category__item col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <img src="./assets/img/category/category_1_image.webp" alt="" className="category__img" />
-                    <div className="category__info">
-                        <h4 className="category__info-name">Adidas</h4>
-                        <span className="category__info-quantity">102 sản phẩm</span>
-                    </div>
-                </div>
-                <div className="category__item col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <img src="./assets/img/category/category_2_image.webp" alt="" className="category__img" />
-                    <div className="category__info">
-                        <h4 className="category__info-name">Nike</h4>
-                        <span className="category__info-quantity">77 sản phẩm</span>
-                    </div>
-                </div>
-                <div className="category__item col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <img src="./assets/img/category/category_3_image.webp" alt="" className="category__img" />
-                    <div className="category__info">
-                        <h4 className="category__info-name">Jordan</h4>
-                        <span className="category__info-quantity">39 sản phẩm</span>
-                    </div>
-                </div>
-                <div className="category__item col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <img src="./assets/img/category/category_4_image.webp" alt="" className="category__img" />
-                    <div className="category__info">
-                        <h4 className="category__info-name">Puma</h4>
-                        <span className="category__info-quantity">20 sản phẩm</span>
-                    </div>
-                </div> */}
             </Row>
         </Container>
     )

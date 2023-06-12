@@ -1,4 +1,4 @@
-import fetchingProducts from "./categoryMiddleware";
+import fetchingProducts from './productMiddleware'
 import fetchingCategory from "./categoryMiddleware";
 
-export {fetchingCategory, fetchingProducts}
+export { fetchingProducts , fetchingCategory}
