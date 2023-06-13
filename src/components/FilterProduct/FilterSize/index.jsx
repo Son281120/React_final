@@ -3,10 +3,11 @@ import { useState } from 'react'
 import './FilterSize.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFilterSizes } from '../../../redux/store/productSlice'
+import { useSearchParams } from 'react-router-dom';
 
 const FilterSize = () => {
     const [sizes, setSizes] = useState([]);
-
+    let [searchParams, setSearchParams] = useSearchParams();
     const dispatch = useDispatch();
     const status = useSelector((state) => state.products.status);
     
@@ -23,9 +24,18 @@ const FilterSize = () => {
     useEffect(() => {
         if (status === 'successed') {
             dispatch(updateFilterSizes(sizes));
+            searchParams.set("sizes", JSON.stringify(sizes));
+            setSearchParams(searchParams);
         }
-    }, [status, sizes, dispatch])
+    }, [status, sizes, dispatch, searchParams, setSearchParams])
     
+    useEffect(()=>{
+        if(searchParams.get('sizes')) {
+            const searchSizesParams = JSON.parse(searchParams.get("sizes"));
+            setSizes(searchSizesParams);
+        } 
+    }, [searchParams])
+
     return (
         <div className='filter-size'>
             <div className='filter-size-item'>

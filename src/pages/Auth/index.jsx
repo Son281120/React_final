@@ -1,35 +1,47 @@
-import React from 'react'
-import './Auth.scss'
+import React, { useState } from 'react'
 import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom'
-const Auth = () => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import './Auth.scss'
 
+const Auth = () => {
+    const [swap, setSwap] = useState(true)
     const router = useLocation();
     const nav = useNavigate();
 
-    if(router.pathname === '/auth') {
-        return <Navigate to={'/auth/login'}/>
+    if (router.pathname === '/auth') {
+        return <Navigate to={'/auth/login'} />
     }
+    const handleBtnRegisterSwap = () => {
+        nav('/auth/register');
+        setSwap(!swap);
+    };
+
+    const handleBtnLoginSwap = () => {
+        nav('/auth/login');
+        setSwap(!swap);
+    };
 
     return (
         <div className='full-screen'>
-            <div className="auth-container" id="container">
-                <Outlet/>
+            <div className={swap ? "auth-container" : "auth-container right-panel-active"} id="container">
+                <Outlet />
                 <div className="overlay-container">
                     <div className="overlay">
                         <div className="overlay-panel overlay-left">
                             <h1 className="title">Hello <br /> friends</h1>
                             <p>if Your have an account, login here and have fun</p>
-                            <button className="btn ghost" id="login" onClick={() => {nav('/auth/login')}}>
+                            <button className="btn ghost" id="login" onClick={handleBtnLoginSwap}>
                                 Login
-                                <i className="fa-solid fa-arrow-left login"></i>
+                                <FontAwesomeIcon icon={faArrowLeft}/>
                             </button>
                         </div>
                         <div className="overlay-panel overlay-right">
                             <h1 className="title">Start now <br /> journy now</h1>
                             <p>if you don't have an account yet, join us and start your joumey.</p>
-                            <button className="btn ghost" id="register" onClick={() => {nav('/auth/register')}}>
+                            <button className="btn ghost" id="register" onClick={handleBtnRegisterSwap}>
                                 Register
-                                <i className="fa-solid fa-arrow-right register"></i>
+                                <FontAwesomeIcon icon={faArrowRight} />
                             </button>
                         </div>
                     </div>

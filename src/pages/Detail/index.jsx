@@ -4,6 +4,8 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBagShopping, faMinus, faPlus, faStar } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux'
+import { addSelectedExist, addSelectedNotExist } from '../../redux/store/productSlice'
 import Support from './Support'
 import Introduce from './Introduce'
 import ImageDetail from './ImageDetail'
@@ -16,6 +18,22 @@ const Detail = () => {
     const [error, setError] = useState('');
     const [checkedSize, setCheckedSize] = useState({ size: '', quantity: 1 })
     const [quantity, setQuantity] = useState(1);
+    const dispatch = useDispatch();
+    const exsitProducts = useSelector(state => state.products.exsitProducts);
+    const handleAddToCart = () => {
+        if (!checkedSize.size) {
+            alert('Vui lòng chọn size giày!')
+        } else {
+            const checkExist = exsitProducts.some(item => item.id === id && item.sizeBuy === checkedSize.size);
+            if (checkExist) {
+                dispatch(addSelectedExist())
+            } else {
+                const innitValue = [id, checkedSize, quantity, data]
+                dispatch(addSelectedNotExist(innitValue));
+            }
+
+        }
+    };
 
 
     useEffect(() => {
@@ -69,7 +87,7 @@ const Detail = () => {
     };
 
 
-    const handleAddtoCart = () => { }
+
 
     return (
         <HelmetProvider>
@@ -109,12 +127,12 @@ const Detail = () => {
                             <div className="product__price product__form_label">
                                 <span className="product__price--new">
                                     {
-                                        status === 'successed' ? data.newPrice.toLocaleString("en-US", { style: "decimal" }): 'loading'
+                                        status === 'successed' ? data.newPrice.toLocaleString("en-US", { style: "decimal" }) : 'loading'
                                     }đ
                                 </span>
                                 <span className="product__price--old">
                                     {
-                                        status === 'successed' ? data.oldPrice.toLocaleString("en-US", { style: "decimal" }): 'loading'
+                                        status === 'successed' ? data.oldPrice.toLocaleString("en-US", { style: "decimal" }) : 'loading'
                                     }đ
                                 </span>
                             </div>
@@ -174,16 +192,12 @@ const Detail = () => {
                                     sumQuantity() !== 0 ?
                                         <button
                                             className="addToCart__btn btn"
-                                            onClick={() => {
-                                                handleAddtoCart()
-                                            }}
+                                            onClick={handleAddToCart}
                                         >
                                             <FontAwesomeIcon icon={faBagShopping} />
                                             MUA NGAY
                                         </button>
-                                        : <button
-                                            className="addToCart__btn_disable"
-                                        >
+                                        : <button className="addToCart__btn_disable">
                                             HẾT HÀNG
                                         </button>
                                 }

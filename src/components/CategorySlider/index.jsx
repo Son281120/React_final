@@ -10,8 +10,6 @@ const CategorySlider = () => {
     const status = useSelector(state => state.category.status);
     const error = useSelector(state => state.category.error);
 
-    console.log(category);
-
     return (
         <Container className="category-slider">
             <Row>

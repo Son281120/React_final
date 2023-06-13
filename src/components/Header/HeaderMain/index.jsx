@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateFilterName } from '../../../redux/store/productSlice'
-
+import './HeaderMain.scss'
 import Logo from '../../../assets/img/PenguinLogo.png'
 
 const HeaderMain = () => {
@@ -17,29 +17,26 @@ const HeaderMain = () => {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        if (status === 'successed' && searchInput !== '') {  
+        if (status === 'successed' && searchInput !== '') {
             dispatch(updateFilterName(searchInput));
             searchParams.set("name", JSON.stringify(searchInput));
             setSearchParams(searchParams);
         }
     }
 
-    useEffect(() => {
-        console.log('window:', window.location.href);
-    }, []);
 
-    // useEffect(() => {
-    //     if (status === 'successed' && searchParams.get("name")) {
-    //         const searchProductParams = JSON.parse(searchParams.get("name"));
-    //         const initValue = {
-    //             name: searchProductParams,
-    //             sizes: [],
-    //             colors: [],
-    //             price: []
-    //         }
-    //         dispatch(filterData(initValue));
-    //     }
-    // }, [dispatch, searchParams, status]);
+    useEffect(() => {
+        if (status === 'successed' && !searchInput) {
+            dispatch(updateFilterName(searchInput));
+        }
+    }, [status, searchInput, dispatch]);
+
+    useEffect(()=>{
+        if(searchParams.get('name')) {
+            const searchNameParams = JSON.parse(searchParams.get("name"));
+            setSearchInput(searchNameParams);
+        }
+    }, [searchParams])
 
 
     const activeClass = (params) => {

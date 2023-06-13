@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Slider from 'react-slider'
 import './RangePrice.scss'
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,6 +27,12 @@ const RangePrice = () => {
         }
     };
     
+    useEffect(()=>{
+        if(searchParams.get('price')) {
+            const searchPriceParams = JSON.parse(searchParams.get("price"));
+            setPrice(searchPriceParams);
+        }
+    }, [searchParams])
 
     return (
         <div className='range-price'>

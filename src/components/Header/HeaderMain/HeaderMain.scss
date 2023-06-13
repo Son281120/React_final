@@ -1,0 +1,221 @@
+.header__main {
+    padding: 10px 0;
+
+    .header__logo-img {
+        display: inline-block;
+        width: 100px;
+    }
+    
+    .header__logo-link {
+        display: block;
+        width: 100%;
+        position: relative;
+        color: var(--black-color);
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    
+    
+    .header__logo-text {
+        font-size: 14px;
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: -0.15rem;
+        position: absolute;
+        top: 8%;
+    }
+    .header__logo-text.auth {
+        font-size: 14px;
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: -0.15rem;
+        position: absolute;
+        top: 28%;
+        color: #CF8E56;
+    }
+    
+    .header__logo-link:hover {
+        text-decoration: none;
+        color: var(--black-color);
+    }
+    
+    
+    
+    
+    
+    .navbar__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        height: 100%;
+    }
+    
+    .navbar__item {
+        position: relative;
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        font-weight: 700;
+    }
+    
+    .navbar__item-link {
+        display: inline-block;
+        padding: 10px 20px;
+        color: var(--text-color);
+        border-radius: 10px;
+        text-transform: uppercase;
+        text-decoration: none;
+    
+        span {
+            padding-right: 6px;
+        }
+    }
+    
+    .active-item {
+        background-color: var(--primary-color);
+        box-shadow: 0 2px 0 var(--text-color);
+        color: var(--white-color);
+    }
+    
+    
+    .navbar__item:hover .navbar__item-link{
+        background-color: var(--primary-color);
+        box-shadow: 0 2px 0 var(--text-color);
+    }   
+    
+    .navbar__item:hover .navbar__item-link {
+        color: var(--white-color);
+        transition: all 0.4s ease;
+        text-shadow: 2px 2px 0 var(--text-color);
+    }
+    
+    .navbar__item:hover .subnav {
+        display: block;
+    }
+    
+    .subnav {
+        display: none;
+    }
+    
+    .subnav::before {
+        content: "";
+        border-width: 20px 26px;
+        border-style: solid;
+        border-color: transparent transparent rgb(235, 235, 235,0.9) transparent;
+        position: absolute;
+        right: 0;
+        top: 18px;
+    }
+    
+    .subnav::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 34px;
+        width: 164px;
+        height: 16px;
+    }
+    
+    .subnav__list {
+        position: absolute;
+        display: block;
+        top: 50px;
+        left: 0;
+        right: 50%;
+        z-index: 1;
+        list-style: none;
+        
+    }
+    
+    .subnav__item {
+        background-color: rgb(235, 235, 235,0.9);
+        width: 180px;
+        padding: 8px 20px 8px 20px;
+    }
+    
+    .subnav__item:first-child {
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    
+    .subnav__item:last-child {
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+    
+    .subnav__item:not(:last-child) {
+        border-bottom: 1px solid #bdbbbb;
+    }
+    
+    .subnav__item_link {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+    
+    
+    .header__search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .header__search form {
+        width: 100%;
+    }
+    
+    .header__search input {
+        padding: 12px 20px;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        border: none;
+        background-color: #EBEBEB;
+        border-radius: 20px;
+        width: 100%;
+    }
+    
+    .header__search_group {
+        position: relative;
+    }
+    
+    .search-btn {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        font-size: 1.4rem ;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: none;
+    
+    }
+    
+    .search-btn:focus {
+        outline: none;
+    }
+    
+    .search-btn:hover{
+        color: var(--white-color);
+        background-color: #3DC8F6;
+        transition: background ease-in-out 0.1s
+    }
+    
+    .search-btn:hover {
+        transform: rotateZ(90deg);
+        transition: all 0.4s ease-in-out;
+    }
+    
+    .slide {
+        margin-top: 130px;
+    }
+    
+    @media(max-width:991px) {
+        .header__logo {
+            display: none;
+        }
+    }
+}
+
+
