@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const ProductItem = ({ id,name, img, newPrice, oldPrice }) => {
+
     return (
         <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 product__item">
-            <NavLink to={`/detail/${id}`}  className="product__item_link">
+            <NavLink to={`/detail/${id}`} className="product__item_link">
                 <div className="product__img">
                     <img src={img} alt="" />
                 </div>
@@ -27,7 +28,6 @@ const ProductItem = ({ id,name, img, newPrice, oldPrice }) => {
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
                 </div>
-                <button className="add-cart-btn">Thêm vào giỏ</button>
             </NavLink>
         </div>
     )

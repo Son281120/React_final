@@ -1,0 +1,45 @@
+.pop-user {
+    position: absolute;
+    right: 0px;
+    top: 34px;
+    z-index: 1;
+    padding: 10px 20px 10px 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 1px 1px 1px #ebebeb;
+    min-width: 180px;
+    border-radius: 14px;
+
+    .pop-user__tilte {
+        font-size: 1.6rem;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-bottom: 1px solid #ebebeb;
+    }
+
+    .pop-user__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+
+        .pop-user_item {
+            padding: 10px;
+            border-bottom: 1px solid transparent;
+
+            a {
+                text-decoration: none;
+                font-size: 1.4rem;
+                color: var(--text-color);
+            }
+
+            &:hover {
+                border-bottom: 1px solid #3F82BB;
+            }
+
+            &:hover a {
+                color: #3F82BB;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+    }
+}

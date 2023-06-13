@@ -77,6 +77,35 @@
         padding-left: 5px;
     }
 
+    .btn {
+        position: relative;
+        border-radius: 20px;
+        border: 1px solid var(--primary-color);
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 10px;
+        padding: 12px 80px;
+        letter-spacing: 0.1rem;
+        text-transform: capitalize;
+        transition: 0.3s ease-in-out;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover {
+            letter-spacing: 3px;
+        }
+        
+        &:active {
+            transform: scale(0.95);
+        }
+        
+        &:focus {
+            outline: none;
+        }
+    }
 
     .btn.ghost {
         background-color: rgba(255, 255, 255, 0.2);
@@ -84,26 +113,26 @@
         color: var(--white-color);
     }
 
-    .btn.ghost i {
+    .btn.ghost svg {
         position: absolute;
         opacity: 0;
         transition: 0.3s ease-in-out;
     }
 
-    .btn.ghost i.register {
-        right: 7rem;
+    .btn.ghost svg.register {
+        right: 54px;
     }
 
-    .btn.ghost i.login {
-        left: 7rem;
+    .btn.ghost svg.login {
+        left: 54px;
     }
 
-    .btn.ghost:hover i.register {
+    .btn.ghost:hover svg.register {
         right: 4rem;
         opacity: 1;
     }
 
-    .btn.ghost:hover i.login {
+    .btn.ghost:hover svg.login {
         left: 4rem;
         opacity: 1;
 
@@ -127,6 +156,8 @@
         border: none;
         margin: 8px 0;
         width: 100%;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
     }
 
     .form-message {

@@ -58,10 +58,6 @@
         transition: all 1s ease-in-out;
     }
     
-    .product__item:hover .add-cart-btn{
-        display: block;
-    }
-    
     .product__img{
         width: 100%;
         overflow: hidden;
@@ -116,32 +112,6 @@
         color: var(--white-color);
         background-color: rgb(219, 167, 44, 0.85);
     }
-    
-    .add-cart-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        border: none;
-        padding: 8px 16px;
-        font-size: 12px;
-        color: var(--white-color);
-        background-color: rgba(219, 167, 44, 0.85);
-        border-radius: 20px;
-        transform: translateX(-50%);
-        display: none;
-    }
-    
-    .add-cart-btn:focus {
-        outline: none;
-    }
-    
-    
-    
-    .add-cart-btn:hover {
-        background-color: rgb(219, 167, 44);
-        transition: color 0.6s ease-in;
-    }
-    
     
     .product__description {
         width: 100%;

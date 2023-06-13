@@ -6,10 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateFilterColors } from '../../../redux/store/productSlice'; 
 
 import './FilterColor.scss'
+import { useSearchParams } from 'react-router-dom';
 
 const FilterColor = () => {
     const [colors, setColors] = useState([]);
-    
+    let [searchParams, setSearchParams] = useSearchParams();
     const dispatch = useDispatch();
     const status = useSelector((state) => state.products.status);
 
@@ -26,8 +27,17 @@ const FilterColor = () => {
     useEffect(() => {
         if (status === 'successed') {
             dispatch(updateFilterColors(colors));
+            searchParams.set("colors", JSON.stringify(colors));
+            setSearchParams(searchParams);
         }
-    }, [status, colors, dispatch])
+    }, [status, colors, dispatch, searchParams, setSearchParams])
+
+    useEffect(()=>{
+        if(searchParams.get('colors')) {
+            const searchColorsParams = JSON.parse(searchParams.get("colors"));
+            setColors(searchColorsParams);
+        }  
+    }, [searchParams])
 
     return (
         <div className='filter-color'>
