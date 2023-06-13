@@ -14,7 +14,9 @@ const Products = () => {
     const filterItem = useSelector((state) => state.products.filterItem);
     const display = useSelector((state) => state.products.displayProducts);
     
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         dispatch(filterData(filterItem));

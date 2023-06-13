@@ -128,9 +128,6 @@
         margin-top: 8px;
         margin-bottom: 16px;
         font-size: 1.4rem;
-    }
-    
-    .product__name a{
         text-decoration: none;
         color: var(--black-color);
     }
@@ -156,6 +153,30 @@
             text-decoration: line-through;
         }
     }
+
+    .product__list {
+        position: relative;
+    }
+    
+    .product__pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+
+        li {
+            padding: 10px;
+
+            &:first-child, &:last-child {
+                border: 1px solid #767676;
+                border-radius: 10px;
+            }
+        }
+
+        
+
+    }
+
 
     
 }

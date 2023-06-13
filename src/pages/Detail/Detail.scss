@@ -41,6 +41,66 @@
         object-fit: contain;
     }
 
+    .group__main_loading{
+        position: relative;
+        width: 535px;
+        height: 535px;
+        background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+        40%, #e5e5e5 48%);
+        border-radius: 5px;
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: load89234 2s infinite;
+        
+    }
+
+    .group__carouse_loading{
+        position: relative;
+        width: 136px;
+        height: 136px;
+        background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+        40%, #e5e5e5 48%);
+        border-radius: 5px;
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: load89234 2s infinite;
+        
+    }
+
+    .product__name_loading {
+        position: relative;
+        margin-bottom: 20px;
+        width: 340px;
+        height: 40px;
+        background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+        40%, #e5e5e5 48%);
+        border-radius: 5px;
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: load89234 2s infinite;
+    }
+
+
+    
+    
+    .product__type_link_loading {
+        position: relative;
+        width: 100px;
+        height: 40px;
+        background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+        40%, #e5e5e5 48%);
+        border-radius: 5px;
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: load89234 2s infinite;
+    }
+
+    @keyframes load89234 {
+        100% {
+            background-position: -100% 0;
+        }
+    }
+
     .group__carousel:hover {
         transform: translateY(2px);
     }

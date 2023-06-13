@@ -12,12 +12,14 @@ const HeaderMain = () => {
     const [searchInput, setSearchInput] = useState('');
 
     const dispatch = useDispatch();
-    const status = useSelector((state) => state.products.status);
+    const statusProduct = useSelector((state) => state.products.status);
+    const category = useSelector(state => state.category.category);
+    const statusCategory = useSelector(state => state.category.status);
 
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        if (status === 'successed' && searchInput !== '') {
+        if (statusProduct === 'successed' && searchInput !== '') {
             dispatch(updateFilterName(searchInput));
             searchParams.set("name", JSON.stringify(searchInput));
             setSearchParams(searchParams);
@@ -26,13 +28,13 @@ const HeaderMain = () => {
 
 
     useEffect(() => {
-        if (status === 'successed' && !searchInput) {
+        if (statusProduct === 'successed' && !searchInput) {
             dispatch(updateFilterName(searchInput));
         }
-    }, [status, searchInput, dispatch]);
+    }, [statusProduct, searchInput, dispatch]);
 
-    useEffect(()=>{
-        if(searchParams.get('name')) {
+    useEffect(() => {
+        if (searchParams.get('name')) {
             const searchNameParams = JSON.parse(searchParams.get("name"));
             setSearchInput(searchNameParams);
         }
@@ -73,10 +75,15 @@ const HeaderMain = () => {
                                 </NavLink>
                                 <div className="subnav">
                                     <ul className="subnav__list">
-                                        <li className="subnav__item"><Link to="/category" className="subnav__item_link">Adidas</Link></li>
-                                        <li className="subnav__item"><Link to="/category" className="subnav__item_link">Nike</Link></li>
-                                        <li className="subnav__item"><Link to="/category" className="subnav__item_link">Jordan</Link></li>
-                                        <li className="subnav__item"><Link to="/category" className="subnav__item_link">Puma</Link></li>
+                                        {
+                                            statusCategory === 'successed' ?
+                                                category.map(item => {
+                                                    return <li className="subnav__item" key={item.id}>
+                                                        <Link to={`/category/${item.id}`} className="subnav__item_link">{item.name}</Link>
+                                                    </li>
+                                                })
+                                                : 'loading'
+                                        }
                                     </ul>
                                 </div>
                             </li>

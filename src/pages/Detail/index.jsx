@@ -20,6 +20,12 @@ const Detail = () => {
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
     const exsitProducts = useSelector(state => state.products.exsitProducts);
+    const selectedProduct = useSelector(state => state.products.selected);
+
+    const category = useSelector(state => state.category.category)
+    const statusCategory = useSelector(state => state.category.status)
+
+
     const handleAddToCart = () => {
         if (!checkedSize.size) {
             alert('Vui lòng chọn size giày!')
@@ -35,6 +41,13 @@ const Detail = () => {
         }
     };
 
+    useEffect(()=> {
+        localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
+    }, [selectedProduct])
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -86,7 +99,12 @@ const Detail = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
     };
 
-
+    const handleDisplayCategoryName = (id) => {
+        if (status === 'successed' && statusCategory === 'successed') {
+            const selectedCategory = category.find(item => item.id === id);
+            return selectedCategory.name;
+        }
+    };
 
 
     return (
@@ -104,7 +122,10 @@ const Detail = () => {
                             />
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-7 col-sm-7 product__info">
-                            <h3 className="product__name">{data.name}</h3>
+                            {
+                                status === 'successed' ? <h3 className="product__name">{data.name}</h3> 
+                                : <div className='product__name_loading'></div>
+                            }
                             <div className="product__review product__form_label">
                                 <FontAwesomeIcon icon={faStar} />
                                 <FontAwesomeIcon icon={faStar} />
@@ -114,7 +135,10 @@ const Detail = () => {
                             </div>
                             <div className="product__brand product__form_label">
                                 <label htmlFor="" className="product__type_label">Hãng:</label>
-                                <Link href="#" className="product__type_link">{data.category_id}</Link>
+                                {
+                                    status === 'successed' ? <Link to={`/category/${data.category_id}`} className="product__type_link">{handleDisplayCategoryName(data.category_id)}</Link>
+                                    : <div className='product__type_link_loading'></div>
+                                }
                             </div>
                             <div className="product__quantity product__form_label">
                                 <label htmlFor="" className="product__type_label">Số lượng còn lại:</label>
@@ -127,12 +151,12 @@ const Detail = () => {
                             <div className="product__price product__form_label">
                                 <span className="product__price--new">
                                     {
-                                        status === 'successed' ? data.newPrice.toLocaleString("en-US", { style: "decimal" }) : 'loading'
+                                        status === 'successed' ? data.newPrice.toLocaleString("en-US", { style: "decimal" }) : <div className='product__type_link_loading'></div>
                                     }đ
                                 </span>
                                 <span className="product__price--old">
                                     {
-                                        status === 'successed' ? data.oldPrice.toLocaleString("en-US", { style: "decimal" }) : 'loading'
+                                        status === 'successed' ? data.oldPrice.toLocaleString("en-US", { style: "decimal" }) : <div className='product__type_link_loading'></div>
                                     }đ
                                 </span>
                             </div>

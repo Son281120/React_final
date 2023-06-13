@@ -1,0 +1,39 @@
+.pop-cart {
+    position: absolute;
+    z-index: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 1px 2px 2px #000;
+    border-radius: 20px;
+    top: 34px;
+    right: 8px;
+    min-width: 500px;
+}
+
+.pop-cart__title {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 1.4rem;
+    color: #ccc;
+}
+
+.pop-cart__list {
+    list-style: none;
+    padding: 20px;
+}
+
+.pop-cart__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pop-cart__item_img {
+    width: 62px;
+    height: 62px;
+    display: block;
+}
+
+.pop-cart__item_info {
+    flex: 1;
+}

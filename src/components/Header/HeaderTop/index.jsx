@@ -1,10 +1,14 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import DisplayUser from './DisplayUser';
+import PopCart from './PopCart'
 import './HeaderTop.scss'
 import { useSelector } from 'react-redux';
+import useHoverItem from '../../../hook';
 
 const HeaderTop = () => {
+    const { isHover, handleMouseEnter, handleMouseLeave } = useHoverItem();
+
 
     const statusLogin = useSelector(state => state.user.statusLogin);
     const selectedProducts = useSelector(state => state.products.selected);
@@ -32,7 +36,10 @@ const HeaderTop = () => {
                     <div className="col-md-4 col-lg-4 col-hg-3">
                         <div className="panel_cart">
                             <div className="top-cart-contain">
-                                <div className="mini-cart text-xs-center">
+                                <div className="mini-cart text-xs-center"
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                >
                                     <div className="heading-cart" >
                                         <Link to="/cart">
                                             <span className="cartImg">
@@ -51,6 +58,7 @@ const HeaderTop = () => {
                                     </div>
                                 </div>
                             </div>
+                            {isHover && <PopCart/>}
                         </div>
                         {
                             statusLogin ? <DisplayUser />

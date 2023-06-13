@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 
+
 const Category = () => {
     return (
         <HelmetProvider>
@@ -8,7 +9,7 @@ const Category = () => {
                 <Helmet>
                     <title>Thương hiệu</title>
                 </Helmet>
-                Category
+                Thuong hieu
             </div>
         </HelmetProvider>
     )

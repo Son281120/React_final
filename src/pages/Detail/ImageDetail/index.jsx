@@ -15,7 +15,7 @@ const ImageDetail = ({ status, img }) => {
                         <img src={mainImg !== ''? mainImg : img[0]} alt="mainImg" className="main__img" />
                         {/* <img src="./assets/img/product/product_3-1.webp" alt="mainImg" className="main__img imgZoom" /> */}
                     </div>
-                    : 'loading'
+                    : <div className='group__main_loading col-xl-12 col-lg-12 col-md-12 col-sm-12'></div>
             }
             {
                 status === 'successed' ?
@@ -29,7 +29,12 @@ const ImageDetail = ({ status, img }) => {
                             />
                         </div>
                     })
-                    : 'Loading'
+                    : <div>
+                        <div className='group__carousel_loading col-xl-3 col-lg-3 col-md-3 col-sm-offset-0'></div>
+                        <div className='group__carousel_loading col-xl-3 col-lg-3 col-md-3 col-sm-offset-0'></div>
+                        <div className='group__carousel_loading col-xl-3 col-lg-3 col-md-3 col-sm-offset-0'></div>
+                        <div className='group__carousel_loading col-xl-3 col-lg-3 col-md-3 col-sm-offset-0'></div>
+                    </div>
             }
         </div>
     )
